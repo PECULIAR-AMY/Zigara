@@ -12,62 +12,62 @@ type AdminData = {
             name: "Mr. Buhari",
             contact: "0803 288 0634",
             address: "Jane Smith",
-            status: "Electronics"
+            status: "inactive"
           
     },
     {  
         name: "Mr. Buhari",
             contact: "0803 288 0634",
             address: "Jane Smith",
-            status: "Electronics"
+            status: "active"
     },
     {
         name: "Mr. Buhari",
         contact: "0803 288 0634",
         address: "Jane Smith",
-        status: "Electronics"
+        status: "inactive"
     },
 
     {
         name: "Mr. Buhari",
         contact: "0803 288 0634",
         address: "Jane Smith",
-        status: "Electronics"
+        status: "active"
   },
 
   {
     name: "Mr. Buhari",
     contact: "0803 288 0634",
     address: "Jane Smith",
-    status: "Electronics"
+    status: "active"
 },
 
 {
     name: "Mr. Buhari",
     contact: "0803 288 0634",
     address: "Jane Smith",
-    status: "Electronics"
+    status: "inactive"
 },
 
 {
     name: "Mr. Buhari",
             contact: "0803 288 0634",
             address: "Jane Smith",
-            status: "Electronics"
+            status: "active"
 },
 
 {
     name: "Mr. Buhari",
     contact: "0803 288 0634",
     address: "Jane Smith",
-    status: "Electronics"
+    status: "inactive"
 },
 
 {
     name: "Mr. Buhari",
     contact: "0803 288 0634",
     address: "Jane Smith",
-    status: "Electronics"
+    status: "active"
 },
   ];
   

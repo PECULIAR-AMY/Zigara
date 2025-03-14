@@ -5,10 +5,19 @@ import DashImage from "../assets/Icon - Dashboard.png";
 import DeliveryImage from "../assets/Group 237566.png";
 import User from "../assets/user 1 (1).png";
 import Logout from "../assets/Icon - Logout.png";
-import SearchBar from "../components/SearhBar"; // Fixed typo in import
+import SearchBar from "../components/SearhBar"; // Corrected typo in import
 import { Bell } from "lucide-react";
 import Girl from "../assets/81.png";
 import Vector from "../assets/Vector (5).png";
+import { NotificationData } from "../components/data/NotificationData"; // Ensure the path is correct
+
+interface NotificationItem {
+  id: number;
+  image: string;
+  name: string;
+  statement: string;
+  hour: string;
+}
 
 const Notification: React.FC = () => {
   return (
@@ -21,10 +30,10 @@ const Notification: React.FC = () => {
             <img src={ZigText} alt="Zig Text" className="w-12 h-12" />
           </div>
 
-          <div className="mt-10 space-y-6">
-            <div className="flex items-center gap-4 p-3 bg-red-50 rounded-lg">
+          <div className="mt-10 space-y-6 ">
+            <div className="flex items-center gap-4 p-3 rounded-lg  bg-[#D71F20]">
               <img src={DashImage} alt="Dashboard" className="w-6 h-6" />
-              <h1 className="text-lg font-semibold text-gray-800">Dashboard</h1>
+              <h1 className="text-lg font-semibold text-[#FFFFFF]">Dashboard</h1>
             </div>
 
             <div className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
@@ -78,9 +87,37 @@ const Notification: React.FC = () => {
               <p className="text-gray-600 hover:underline cursor-pointer">Archive</p>
             </div>
 
-            {/* Notification List (Placeholder) */}
+            {/* Notification List */}
             <div className="mt-8 bg-white p-6 rounded-lg shadow-md">
-              <p className="text-gray-600">No new notifications.</p>
+              {NotificationData.map((notification: NotificationItem, index: number) => (
+                <div key={notification.id} className="flex flex-col gap-4 p-4 hover:bg-gray-50">
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={notification.image}
+                      alt={notification.name}
+                      className="w-10 h-10 rounded-full"
+                    />
+                    <div className="flex-1">
+                      <p className="text-sm font-semibold text-gray-800">
+                        {notification.name}
+                      </p>
+                      <p className="text-sm text-gray-600">{notification.statement}</p>
+                      <p className="text-xs text-gray-500">{notification.hour}</p>
+                    </div>
+                  </div>
+                  {/* Accept and Decline buttons for the last three items */}
+                  {index >= NotificationData.length - 3 && (
+                    <div className="flex gap-5 pl-14"> {/* Added pl-14 to align with the image */}
+                      <button className="px-4 py-2 bg-black text-white rounded-lg">
+                        Accept
+                      </button>
+                      <button className="px-4 py-2 bg-white text-black border border-gray-300 rounded-lg">
+                        Decline
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
