@@ -1,15 +1,16 @@
  import DashBoard from './components/DashBoard'
-
-   import NewOrder from "./components/NewOrder"
- import Notification from "./components/Notification"
+ import Admin from './components/Admin'
+// import NewOrder from "./components/NewOrder"
+// import Notification from "./components/Notification"
 
 function App() {
 
   return (
     <>
-   <DashBoard />   
-  <NewOrder />  
-    <Notification />  
+    <DashBoard /> 
+   <Admin />  
+  {/* <NewOrder />  
+  <Notification />    */}
     </>
   )
 }
