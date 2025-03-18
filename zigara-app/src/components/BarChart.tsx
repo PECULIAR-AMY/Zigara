@@ -51,7 +51,6 @@ export const BarChart: React.FC = () => {
       },
       title: {
         display: true,
-        text: "Monthly Earnings", // Chart title
         font: {
           size: 16, // Title font size
         },
