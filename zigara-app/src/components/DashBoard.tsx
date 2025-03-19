@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-import ZigLogo from "../assets/Logo (1).png";
-import ZigText from "../assets/Vector (1).png";
-import DashImage from "../assets/Icon - Dashboard.png";
-import DeliveryImage from "../assets/Group 237566.png";
-import User from "../assets/user 1 (1).png";
-import Logout from "../assets/Icon - Logout.png";
 import SearchBar from "./SearhBar";
 import { Bell } from "lucide-react";
 import Girl from "../assets/81.png";
@@ -14,6 +8,17 @@ import pending from "../assets/Frame 56902.png";
 import delivered from "../assets/Frame 56903.png";
 import orders from "./data/Orders";
 import { BarChart } from "../components/BarChart";
+
+// Define the Order interface
+interface Order {
+  date: string;
+  client: string;
+  owner: string;
+  package: string;
+  receiver: string;
+  dropOff: string;
+  status: string;
+}
 
 const DashBoard: React.FC = () => {
   const [filterStatus, setFilterStatus] = useState<string | null>(null);
@@ -37,43 +42,13 @@ const DashBoard: React.FC = () => {
   const totalPicked = orders.filter((order) => order.status === "picked").length;
 
   return (
-    <div className="p-4 md:p-8 bg-gray-100 min-h-screen">
+    <div className="p-4 md:p-8 bg-gray-100 min-h-screen w-[1142px]">
       <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-        {/* Sidebar */}
-        <div className="w-full md:w-64 bg-white p-4 md:p-6 rounded-lg shadow-md">
-          <div className="flex gap-4 items-center">
-            <img src={ZigLogo} alt="Zig Logo" className="w-8 h-8 md:w-12 md:h-12" />
-            <img src={ZigText} alt="Zig Text" className="w-8 h-8 md:w-12 md:h-12" />
-          </div>
-
-          <div className="mt-6 md:mt-10 space-y-4 md:space-y-6">
-            <div className="flex items-center gap-4 p-2 md:p-3 bg-[#D71F20] rounded-lg">
-              <img src={DashImage} alt="Dashboard" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-md md:text-lg font-semibold text-[#FFFFFF]">Dashboard</h1>
-            </div>
-
-            <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-              <img src={DeliveryImage} alt="Delivery" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-md md:text-lg text-gray-700">Delivery Orders</h1>
-            </div>
-
-            <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-              <img src={User} alt="User" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-md md:text-lg text-gray-700">Employees</h1>
-            </div>
-
-            <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-              <img src={Logout} alt="Logout" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-md md:text-lg text-gray-700">Logout</h1>
-            </div>
-          </div>
-        </div>
-
         {/* Main Content */}
         <div className="flex-1">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-center p-4 md:p-6 rounded-lg">
-            <SearchBar onSearch={(query) => setSearchQuery(query)} />
+            <SearchBar onSearch={(query: string) => setSearchQuery(query)} />
             <div className="flex items-center gap-4 md:gap-6 mt-4 md:mt-0">
               <Bell size={24} className="text-gray-600 cursor-pointer" />
               <div className="flex items-center gap-2 md:gap-4">
@@ -187,7 +162,7 @@ const DashBoard: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {searchedOrders.map((order) => (
+                  {searchedOrders.map((order: Order) => (
                     <tr key={order.date} className="border-b border-gray-200 text-gray-600 hover:bg-gray-50">
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.date}</td>
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.client}</td>

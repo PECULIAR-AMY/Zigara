@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import ZigLogo from "../assets/Logo (1).png";
 import ZigText from "../assets/Vector (1).png";
 import DashImage from "../assets/Icon - Dashboard.png";
@@ -108,10 +109,10 @@ const NewOrder: React.FC = () => {
           </div>
 
           <div className="mt-6 md:mt-10 space-y-4 md:space-y-6">
-            <div className="flex items-center gap-4 p-2 md:p-3 bg-[#D71F20] rounded-lg">
+            <Link to="/dashboard" className="flex items-center gap-4 p-2 md:p-3 bg-[#D71F20] rounded-lg">
               <img src={DashImage} alt="Dashboard" className="w-5 h-5 md:w-6 md:h-6" />
               <h1 className="text-sm md:text-lg font-semibold text-white">Dashboard</h1>
-            </div>
+            </Link>
 
             <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
               <img src={DeliveryImage} alt="Delivery" className="w-5 h-5 md:w-6 md:h-6" />

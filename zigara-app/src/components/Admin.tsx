@@ -5,7 +5,7 @@ import DashImage from "../assets/Icon - Dashboard.png";
 import DeliveryImage from "../assets/Group 237566.png";
 import User from "../assets/user 1 (1).png";
 import Logout from "../assets/Icon - Logout.png";
-import SearchBar from "./SearhBar";
+import SearchBar from "../components/SearhBar";
 import { Bell } from "lucide-react";
 import Girl from "../assets/81.png";
 import Vector from "../assets/Vector (5).png";
