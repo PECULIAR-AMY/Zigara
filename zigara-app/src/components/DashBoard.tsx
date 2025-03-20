@@ -42,7 +42,7 @@ const DashBoard: React.FC = () => {
   const totalPicked = orders.filter((order) => order.status === "picked").length;
 
   return (
-    <div className="p-4 md:p-8 bg-gray-100 min-h-screen w-[1142px]">
+    <div className="p-4 md:p-8 bg-gray-100 min-h-screen w-[1142]">
       <div className="flex flex-col md:flex-row gap-4 md:gap-8">
         {/* Main Content */}
         <div className="flex-1">
