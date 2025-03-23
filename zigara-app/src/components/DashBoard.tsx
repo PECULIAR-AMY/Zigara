@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SearchBar from "./SearhBar";
+import SearchBar from "../components/SearhBar";
 import { Bell } from "lucide-react";
 import Girl from "../assets/81.png";
 import Vector from "../assets/Vector (5).png";
@@ -16,7 +16,7 @@ interface Order {
   owner: string;
   package: string;
   receiver: string;
-  dropOff: string;
+  dropOffLocation: string;
   status: string;
 }
 
@@ -29,11 +29,9 @@ const DashBoard: React.FC = () => {
     ? orders.filter((order) => order.status === filterStatus)
     : orders;
 
-  // Filter orders by search query
+  // Filter orders by search query (based on dropOffLocation)
   const searchedOrders = filteredOrders.filter((order) =>
-    Object.values(order).some((value) =>
-      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
-    )
+    order.dropOffLocation.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const totalOrders = orders.length;
@@ -157,7 +155,7 @@ const DashBoard: React.FC = () => {
                     <th className="py-2 px-3 md:py-3 md:px-4 text-left">Owner</th>
                     <th className="py-2 px-3 md:py-3 md:px-4 text-left">Package</th>
                     <th className="py-2 px-3 md:py-3 md:px-4 text-left">Receiver</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Drop-Off</th>
+                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Drop-Off Location</th>
                     <th className="py-2 px-3 md:py-3 md:px-4 text-left">Status</th>
                   </tr>
                 </thead>
@@ -169,7 +167,7 @@ const DashBoard: React.FC = () => {
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.owner}</td>
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.package}</td>
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.receiver}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.dropOff}</td>
+                      <td className="py-2 px-3 md:py-3 md:px-4">{order.dropOffLocation}</td>
                       <td className={`py-2 px-3 md:py-3 md:px-4 font-semibold ${order.status === "delivered" ? "text-green-600" : "text-red-500"}`}>
                         {order.status}
                       </td>

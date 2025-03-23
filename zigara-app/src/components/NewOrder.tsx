@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import ZigLogo from "../assets/Logo (1).png";
-import ZigText from "../assets/Vector (1).png";
-import DashImage from "../assets/Icon - Dashboard.png";
-import DeliveryImage from "../assets/Group 237566.png";
-import User from "../assets/user 1 (1).png";
-import Logout from "../assets/Icon - Logout.png";
+
 import AdminData from "../components/data/AdminData.tsx"; // Ensure the path is correct
 import Girl from "../assets/81.png";
 import Vector from "../assets/Vector (5).png";
@@ -101,35 +95,6 @@ const NewOrder: React.FC = () => {
   return (
     <div className="p-4 sm:p-6 md:p-10 bg-gray-100 min-h-screen">
       <div className="flex flex-col md:flex-row gap-4 md:gap-8">
-        {/* Sidebar */}
-        <div className="w-full md:w-64 bg-white p-4 md:p-6 rounded-lg shadow-md">
-          <div className="flex gap-4 items-center">
-            <img src={ZigLogo} alt="Zig Logo" className="w-8 h-8 md:w-12 md:h-12" />
-            <img src={ZigText} alt="Zig Text" className="w-8 h-8 md:w-12 md:h-12" />
-          </div>
-
-          <div className="mt-6 md:mt-10 space-y-4 md:space-y-6">
-            <Link to="/dashboard" className="flex items-center gap-4 p-2 md:p-3 bg-[#D71F20] rounded-lg">
-              <img src={DashImage} alt="Dashboard" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-sm md:text-lg font-semibold text-white">Dashboard</h1>
-            </Link>
-
-            <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-              <img src={DeliveryImage} alt="Delivery" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-sm md:text-lg text-gray-700">Delivery Orders</h1>
-            </div>
-
-            <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-              <img src={User} alt="User" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-sm md:text-lg text-gray-700">Employees</h1>
-            </div>
-
-            <div className="flex items-center gap-4 p-2 md:p-3 hover:bg-gray-50 rounded-lg cursor-pointer">
-              <img src={Logout} alt="Logout" className="w-5 h-5 md:w-6 md:h-6" />
-              <h1 className="text-sm md:text-lg text-gray-700">Logout</h1>
-            </div>
-          </div>
-        </div>
 
         {/* Main Content */}
         <div className="flex-1">

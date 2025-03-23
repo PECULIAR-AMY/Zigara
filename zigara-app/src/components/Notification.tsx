@@ -60,8 +60,6 @@ const Notification: React.FC = () => {
     <div className="p-4 md:p-8 bg-gray-100 min-h-screen">
       <div className="flex flex-col md:flex-row gap-4 md:gap-8">
        
-
-        {/* Main Content */}
         <div className="flex-1">
           {/* Header */}
           <div className="flex flex-col md:flex-row justify-between items-center bg-white p-4 md:p-6 rounded-lg shadow-md gap-4 md:gap-0">

@@ -5,6 +5,7 @@ import Admin from "./components/Admin";
 import NewOrder from "./components/NewOrder"; 
 import Notification from "./components/Notification"; 
 import NavBar from "./components/NavBar"; 
+import LogOut from "./components/LogOut";
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
           <Route path="/new-order" element={<NewOrder />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/notification" element={<Notification />} />
+          <Route path="/logout" element={<LogOut />} />
         </Routes>
       </div>
     </div>

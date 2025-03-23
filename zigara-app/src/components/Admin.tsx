@@ -1,10 +1,4 @@
 import React from "react";
-import ZigLogo from "../assets/Logo (1).png";
-import ZigText from "../assets/Vector (1).png";
-import DashImage from "../assets/Icon - Dashboard.png";
-import DeliveryImage from "../assets/Group 237566.png";
-import User from "../assets/user 1 (1).png";
-import Logout from "../assets/Icon - Logout.png";
 import SearchBar from "../components/SearhBar";
 import { Bell } from "lucide-react";
 import Girl from "../assets/81.png";
@@ -15,34 +9,6 @@ const Admin: React.FC = () => {
   return (
     <div className="p-4 sm:p-6 md:p-10">
       <div className="flex flex-col md:flex-row gap-4 md:gap-8 lg:gap-40">
-        {/* Sidebar */}
-        <div className="w-full md:w-64">
-          <div className="flex gap-4 items-center">
-            <img src={ZigLogo} alt="Zig Logo" className="w-12 h-12 md:w-18 md:h-37.7" />
-            <img src={ZigText} alt="Zig Text" className="w-12 h-12 md:w-18 md:h-37.7" />
-          </div>
-
-          <div className="bg-red-500 flex items-center rounded-lg p-2 md:p-3 gap-2 md:gap-4 mt-6 md:mt-20">
-            <img src={DashImage} alt="Dash" className="w-6 h-6 md:w-10 md:h-37.7" />
-            <h1 className="text-sm md:text-base text-white">Dashboard</h1>
-          </div>
-
-          <div className="flex items-center gap-2 md:gap-4 mt-6 md:mt-20">
-            <img src={DeliveryImage} alt="Delivery" className="w-6 h-6 md:w-10 md:h-10" />
-            <h1 className="text-sm md:text-base">Delivery order</h1>
-          </div>
-
-          <div className="flex items-center gap-2 md:gap-4 mt-6 md:mt-20">
-            <img src={User} alt="user" className="w-6 h-6 md:w-10 md:h-10" />
-            <h1 className="text-sm md:text-base">Employees</h1>
-          </div>
-
-          <div className="flex items-center gap-2 md:gap-4 mt-6 md:mt-20">
-            <img src={Logout} alt="Logout" className="w-6 h-6 md:w-10 md:h-10" />
-            <h1 className="text-sm md:text-base">Logout</h1>
-          </div>
-        </div>
-
         {/* Main Content */}
         <div className="w-full">
           {/* Header */}
