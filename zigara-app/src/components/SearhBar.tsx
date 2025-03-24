@@ -22,19 +22,26 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSearchSubmit();
+    }
+  };
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
   return (
     <div>
-      <div className="flex items-center border border-gray-400 rounded-lg px-3 bg-white shadow-sm h-[40px] w-100">
+      <div className="flex items-center border border-gray-400 rounded-2xl px-3 bg-white shadow-sm h-[40px] w-200 ">
         {/* Search Input */}
         <input
           type="text"
           placeholder="Search by location"
           value={query}
           onChange={handleSearch}
+          onKeyPress={handleKeyPress}
           className="w-full outline-none bg-transparent text-gray-800 placeholder-gray-400 h-full"
         />
 

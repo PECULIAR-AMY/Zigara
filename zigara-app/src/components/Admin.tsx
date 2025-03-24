@@ -69,7 +69,7 @@ const Admin: React.FC = () => {
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.owner}</td>
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.package}</td>
                       <td className="py-2 px-3 md:py-3 md:px-4">{order.receiver}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.dropOff}</td>
+                      <td className="py-2 px-3 md:py-3 md:px-4">{order.dropOffLocation}</td>
                       <td className={`py-2 px-3 md:py-3 md:px-4 font-semibold ${order.status === "delivered" ? "text-green-600" : "text-red-500"}`}>
                         {order.status}
                       </td>

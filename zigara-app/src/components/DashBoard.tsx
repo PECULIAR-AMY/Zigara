@@ -8,6 +8,7 @@ import pending from "../assets/Frame 56902.png";
 import delivered from "../assets/Frame 56903.png";
 import orders from "./data/Orders";
 import { BarChart } from "../components/BarChart";
+import { ProgressCircle } from "../components/ProgressCircle"
 
 // Define the Order interface
 interface Order {
@@ -98,86 +99,105 @@ const DashBoard: React.FC = () => {
             </div>
           </div>
 
-          {/* Graph */}
-          <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mt-6 md:mt-8">
-            <div className="flex justify-between items-center">
-              <p className="text-md md:text-lg font-semibold">Earnings</p>
-              <p className="text-sm md:text-md text-gray-500">Monthly</p>
-            </div>
-            <BarChart />
-          </div>
+    
+          <div className="flex gap-4 md:gap-6 items-start">
+  {/* BarChart with fixed height and improved styling */}
+  <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mt-6 md:mt-8 w-3/4">
+    <div className="flex justify-between items-center mb-2">
+      <p className="text-md md:text-lg font-semibold">Earnings</p>
+      <p className="text-sm md:text-md text-gray-500">Monthly</p>
+    </div>
+    <div className="h-[300px] w-full mt-4 mb-25"> {/* Increased height for better visibility */}
+      <BarChart />
+    </div>
+  </div>
 
-          {/* Orders Table */}
-          <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mt-6 md:mt-8">
-            <div className="flex justify-between items-center mb-4 md:mb-6">
-              <p className="text-md md:text-lg font-semibold">New Delivery Requests</p>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setFilterStatus(null)}
-                  className={`px-3 py-1 rounded-lg text-sm ${
-                    filterStatus === null ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
-                  }`}
-                >
-                  All
-                </button>
-                <button
-                  onClick={() => setFilterStatus("picked")}
-                  className={`px-3 py-1 rounded-lg text-sm ${
-                    filterStatus === "picked" ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
-                  }`}
-                >
-                  Picked
-                </button>
-                <button
-                  onClick={() => setFilterStatus("pending")}
-                  className={`px-3 py-1 rounded-lg text-sm ${
-                    filterStatus === "pending" ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
-                  }`}
-                >
-                  Pending
-                </button>
-                <button
-                  onClick={() => setFilterStatus("delivered")}
-                  className={`px-3 py-1 rounded-lg text-sm ${
-                    filterStatus === "delivered" ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
-                  }`}
-                >
-                  Delivered
-                </button>
-              </div>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-[#D71F20] text-white uppercase text-sm">
-                  <tr>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Date</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Client</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Owner</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Package</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Receiver</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Drop-Off Location</th>
-                    <th className="py-2 px-3 md:py-3 md:px-4 text-left">Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {searchedOrders.map((order: Order) => (
-                    <tr key={order.date} className="border-b border-gray-200 text-gray-600 hover:bg-gray-50">
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.date}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.client}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.owner}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.package}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.receiver}</td>
-                      <td className="py-2 px-3 md:py-3 md:px-4">{order.dropOffLocation}</td>
-                      <td className={`py-2 px-3 md:py-3 md:px-4 font-semibold ${order.status === "delivered" ? "text-green-600" : "text-red-500"}`}>
-                        {order.status}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+  {/* ProgressCircle with improved styling */}
+  <div className="bg-white p-4 rounded-lg shadow-md mt-6 md:mt-8 flex flex-col items-center justify-center w-1/3">
+    <ProgressCircle percentage={70} />
+  </div>
+</div>
+
+         {/* Orders Table */}
+    <div className="bg-white p-4 md:p-6 rounded-lg shadow-md mt-6 md:mt-8">
+  <div className="flex justify-between items-center mb-4 md:mb-6">
+    <p className="text-md md:text-lg font-semibold">New Delivery Requests</p>
+    <div className="flex gap-2">
+      <button
+        onClick={() => setFilterStatus(null)}
+        className={`px-3 py-1 rounded-lg text-sm ${
+          filterStatus === null ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
+        }`}
+      >
+        All
+      </button>
+      <button
+        onClick={() => setFilterStatus("picked")}
+        className={`px-3 py-1 rounded-lg text-sm ${
+          filterStatus === "picked" ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
+        }`}
+      >
+        Picked
+      </button>
+      <button
+        onClick={() => setFilterStatus("pending")}
+        className={`px-3 py-1 rounded-lg text-sm ${
+          filterStatus === "pending" ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
+        }`}
+      >
+        Pending
+      </button>
+      <button
+        onClick={() => setFilterStatus("delivered")}
+        className={`px-3 py-1 rounded-lg text-sm ${
+          filterStatus === "delivered" ? "bg-[#D71F20] text-white" : "bg-gray-200 text-gray-700"
+        }`}
+      >
+        Delivered
+      </button>
+    </div>
+  </div>
+  <div className="overflow-x-auto">
+    <table className="w-full">
+      <thead className="bg-[#D71F20] text-white uppercase text-sm">
+        <tr>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Date</th>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Client</th>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Owner</th>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Package</th>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Receiver</th>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Drop-Off Location</th>
+          <th className="py-2 px-3 md:py-3 md:px-4 text-left">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {searchedOrders
+          .filter(order => {
+            if (filterStatus === null) return true;
+            return order.status === filterStatus;
+          })
+          .map((order: Order) => (
+            <tr key={order.date} className="border-b border-gray-200 text-gray-600 hover:bg-gray-50">
+              <td className="py-2 px-3 md:py-3 md:px-4">{order.date}</td>
+              <td className="py-2 px-3 md:py-3 md:px-4">{order.client}</td>
+              <td className="py-2 px-3 md:py-3 md:px-4">{order.owner}</td>
+              <td className="py-2 px-3 md:py-3 md:px-4">{order.package}</td>
+              <td className="py-2 px-3 md:py-3 md:px-4">{order.receiver}</td>
+              <td className="py-2 px-3 md:py-3 md:px-4">{order.dropOffLocation}</td>
+              <td className={`py-2 px-3 md:py-3 md:px-4 font-semibold ${
+                order.status === "delivered" ? "text-green-600" : 
+                order.status === "picked" ? "text-blue-600" :
+                "text-red-500"
+              }`}>
+                {order.status}
+              </td>
+            </tr>
+          ))}
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
       </div>
     </div>
   );
