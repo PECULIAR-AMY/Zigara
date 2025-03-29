@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { SearchNormal1 } from "iconsax-react"; // Importing the search icon
 
 interface SearchBarProps {
-  onSearch: (query: string) => void;
+  onSearch?: (query: string) => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
@@ -16,7 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
   const handleSearchSubmit = () => {
     if (query.trim()) {
-      onSearch(query); // Pass the query to the parent component
+      onSearch?.(query); // Pass the query to the parent component
     } else {
       setIsModalOpen(true); // Show modal if the query is empty
     }
